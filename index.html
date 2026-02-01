@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>MLT Level 4 | Professional Study Portal</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +34,7 @@
             --shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: transparent; }
 
         body {
             background-color: var(--bg);
@@ -42,6 +42,7 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             transition: background 0.5s ease;
             overflow-x: hidden;
+            width: 100%;
         }
 
         /* --- 3D FLOATING BACKGROUND --- */
@@ -51,11 +52,11 @@
         .orb {
             position: absolute; border-radius: 50%;
             background: radial-gradient(circle, var(--primary-glow), transparent);
-            filter: blur(100px); animation: float 20s infinite alternate ease-in-out;
+            filter: blur(80px); animation: float 20s infinite alternate ease-in-out;
         }
         @keyframes float {
             from { transform: translate(0, 0) scale(1); }
-            to { transform: translate(100px, 200px) scale(1.3); }
+            to { transform: translate(50px, 100px) scale(1.2); }
         }
 
         /* --- PHONE STATUS BAR --- */
@@ -70,33 +71,33 @@
         /* --- NAVIGATION --- */
         nav {
             background: var(--surface); backdrop-filter: blur(20px);
-            height: 75px; position: sticky; top: 32px; z-index: 4000;
+            height: 70px; position: sticky; top: 32px; z-index: 4000;
             display: flex; justify-content: space-between; align-items: center;
             padding: 0 5%; border-bottom: 1px solid var(--border);
         }
-        .nav-left { display: flex; align-items: center; gap: 20px; }
+        .nav-left { display: flex; align-items: center; gap: 15px; }
         .menu-toggle {
             background: var(--primary); color: white; border: none;
-            width: 45px; height: 45px; border-radius: 12px;
+            width: 40px; height: 40px; border-radius: 10px;
             cursor: pointer; display: flex; align-items: center; justify-content: center;
-            font-size: 1.2rem; box-shadow: 0 4px 15px var(--primary-glow);
+            font-size: 1.1rem; box-shadow: 0 4px 12px var(--primary-glow);
         }
-        .logo { font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 900; letter-spacing: -1px; }
+        .logo { font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 900; letter-spacing: -0.5px; }
         .logo span { color: var(--primary); }
 
         .theme-btn {
             background: var(--surface-hover); color: var(--text-high);
-            border: 1px solid var(--border); padding: 10px 18px; border-radius: 50px;
-            cursor: pointer; font-size: 0.9rem; font-weight: 700;
-            display: flex; align-items: center; gap: 8px; transition: 0.3s;
+            border: 1px solid var(--border); padding: 8px 14px; border-radius: 50px;
+            cursor: pointer; font-size: 0.8rem; font-weight: 700;
+            display: flex; align-items: center; gap: 6px; transition: 0.3s;
         }
-        .theme-btn:hover { border-color: var(--primary); color: var(--primary); }
 
         /* --- SIDEBAR --- */
         .sidebar {
-            position: fixed; top: 0; left: -320px; width: 320px; height: 100%;
+            position: fixed; top: 0; left: -280px; width: 280px; height: 100%;
             background: var(--surface); z-index: 6000; border-right: 1px solid var(--border);
-            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); padding: 60px 25px;
+            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); padding: 60px 20px;
+            overflow-y: auto;
         }
         .sidebar.active { left: 0; }
         .sidebar-overlay {
@@ -106,98 +107,105 @@
         .sidebar-overlay.active { display: block; }
 
         .sidebar-item {
-            width: 100%; display: flex; align-items: center; gap: 15px;
-            padding: 16px; border-radius: 15px; background: rgba(255,255,255,0.03);
+            width: 100%; display: flex; align-items: center; gap: 12px;
+            padding: 14px; border-radius: 12px; background: rgba(255,255,255,0.03);
             border: 1px solid var(--border); color: var(--text-high);
-            text-decoration: none; font-weight: 700; margin-bottom: 12px; transition: 0.3s;
+            text-decoration: none; font-weight: 700; margin-bottom: 10px; transition: 0.3s;
+            font-size: 0.95rem;
         }
-        .sidebar-item:hover { background: var(--primary); color: white; transform: scale(1.05); }
+        .sidebar-item:hover { background: var(--primary); color: white; }
 
         /* --- HERO --- */
-        .hero { padding: 100px 5% 60px; text-align: center; }
-        .hero h1 { font-family: 'Outfit'; font-size: clamp(2.5rem, 10vw, 4.5rem); line-height: 1.1; margin-bottom: 20px; }
+        .hero { padding: 60px 5% 40px; text-align: center; }
+        .hero h1 { font-family: 'Outfit'; font-size: clamp(2rem, 8vw, 4rem); line-height: 1.2; margin-bottom: 15px; }
         .hero span { color: var(--primary); }
+        .hero p { font-size: 0.95rem; color: var(--text-low); max-width: 500px; margin: 0 auto; }
         
-        .hero-btns { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+        .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 25px; }
         .btn-wa-channel {
-            background: #25D366; color: white; padding: 15px 30px; border-radius: 50px;
-            text-decoration: none; font-weight: 800; display: flex; align-items: center; gap: 10px;
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); transition: 0.3s;
+            background: #25D366; color: white; padding: 14px 24px; border-radius: 50px;
+            text-decoration: none; font-weight: 800; display: flex; align-items: center; gap: 8px;
+            box-shadow: 0 8px 15px rgba(37, 211, 102, 0.2); transition: 0.3s;
+            font-size: 0.9rem;
         }
-        .btn-wa-channel:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5); }
 
         /* --- GRID & CARDS --- */
         .grid {
-            max-width: 1300px; margin: 0 auto; padding: 40px 5%;
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;
+            max-width: 1300px; margin: 0 auto; padding: 20px 5%;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;
         }
         .module-card {
-            background: var(--surface); border-radius: 28px; border: 1px solid var(--border);
+            background: var(--surface); border-radius: 24px; border: 1px solid var(--border);
             overflow: hidden; position: relative; transition: 0.4s; box-shadow: var(--shadow);
         }
-        .module-card:hover { transform: translateY(-15px); border-color: var(--primary); }
-        .card-img { width: 100%; height: 220px; object-fit: cover; }
-        .card-content { padding: 30px; }
-        .card-content h3 { font-family: 'Outfit'; font-size: 1.4rem; margin-bottom: 10px; }
+        .card-img { width: 100%; height: 180px; object-fit: cover; }
+        .card-content { padding: 20px; }
+        .card-content h3 { font-family: 'Outfit'; font-size: 1.2rem; margin-bottom: 10px; line-height: 1.3; }
         
         .btn-notes {
-            width: 100%; padding: 16px; border-radius: 15px; border: none;
+            width: 100%; padding: 14px; border-radius: 12px; border: none;
             background: var(--primary); color: white; font-weight: 800; cursor: pointer;
-            transition: 0.3s; font-size: 1rem;
+            transition: 0.3s; font-size: 0.95rem;
         }
-        .btn-notes:hover { letter-spacing: 1px; }
 
         /* --- SEARCH --- */
-        .search-area { max-width: 600px; margin: 0 auto 50px; padding: 0 5%; }
+        .search-area { max-width: 600px; margin: 0 auto 30px; padding: 0 5%; }
         .search-box {
-            width: 100%; padding: 20px 30px; border-radius: 50px;
+            width: 100%; padding: 15px 20px; border-radius: 50px;
             background: var(--surface); border: 1px solid var(--border);
-            color: var(--text-high); font-size: 1rem; box-shadow: var(--shadow);
+            color: var(--text-high); font-size: 0.95rem; box-shadow: var(--shadow);
         }
 
         /* --- FOOTER --- */
-        footer { padding: 80px 5%; text-align: center; border-top: 1px solid var(--border); background: var(--surface); }
+        footer { padding: 60px 5%; text-align: center; border-top: 1px solid var(--border); background: var(--surface); }
         .revon-brand {
-            font-size: 2rem; font-weight: 900; font-family: 'Outfit';
+            font-size: 1.5rem; font-weight: 900; font-family: 'Outfit';
             background: linear-gradient(to right, #0D9488, #2dd4bf);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            display: block; margin-bottom: 10px;
+            display: block; margin-bottom: 8px;
+        }
+
+        /* Responsive Fixes for very small screens */
+        @media (max-width: 360px) {
+            .nav-left { gap: 10px; }
+            .logo { font-size: 1rem; }
+            .grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
 
     <div class="floating-bg">
-        <div class="orb" style="width: 600px; height: 600px; top: -200px; left: -100px;"></div>
-        <div class="orb" style="width: 500px; height: 500px; bottom: -100px; right: -100px; animation-delay: -10s;"></div>
+        <div class="orb" style="width: 300px; height: 300px; top: -100px; left: -50px;"></div>
+        <div class="orb" style="width: 250px; height: 250px; bottom: -50px; right: -50px; animation-delay: -10s;"></div>
     </div>
 
     <!-- Phone Status -->
     <div class="status-bar">
         <div id="clock">Loading...</div>
         <div>
-            <i class="fa-solid fa-signal"></i> &nbsp;
             <i class="fa-solid fa-wifi"></i> &nbsp;
-            <span id="battery">100%</span> <i class="fa-solid fa-battery-full"></i>
+            <span id="battery">--%</span> <i class="fa-solid fa-battery-full"></i>
         </div>
     </div>
 
     <nav>
         <div class="nav-left">
-            <button class="menu-toggle" onclick="toggleSidebar()">
+            <button class="menu-toggle" onclick="toggleSidebar()" aria-label="Open Menu">
                 <i class="fa-solid fa-bars-staggered"></i>
             </button>
             <div class="logo">MLT<span>PORTAL</span></div>
         </div>
         <button class="theme-btn" onclick="toggleTheme()">
-            <i class="fa-solid fa-circle-half-stroke"></i> Theme
+            <i class="fa-solid fa-circle-half-stroke"></i>
         </button>
     </nav>
 
     <!-- Sidebar -->
     <div class="sidebar-overlay" id="overlay" onclick="toggleSidebar()"></div>
     <aside class="sidebar" id="sidebar">
-        <h2 style="margin-bottom: 30px; font-family: 'Outfit';">Our Services</h2>
+        <h2 style="margin-bottom: 25px; font-family: 'Outfit'; font-size: 1.4rem;">Our Services</h2>
         
         <a href="https://wa.me/255760240796" target="_blank" class="sidebar-item">
             <i class="fa-solid fa-laptop-code"></i> Web Design
@@ -215,7 +223,7 @@
             <i class="fa-solid fa-headset"></i> 24/7 Support
         </a>
 
-        <button class="btn-notes" style="margin-top: 40px;" onclick="toggleSidebar()">Close Menu</button>
+        <button class="btn-notes" style="margin-top: 30px;" onclick="toggleSidebar()">Close Menu</button>
     </aside>
 
     <header class="hero">
@@ -224,17 +232,17 @@
         
         <div class="hero-btns">
             <a href="https://whatsapp.com/channel/0029VaxUO80DjiOUlmhSVS2f" target="_blank" class="btn-wa-channel">
-                <i class="fa-brands fa-whatsapp"></i> Follow Updates Channel
+                <i class="fa-brands fa-whatsapp"></i> Follow Channel
             </a>
         </div>
     </header>
 
     <div class="search-area">
-        <input type="text" id="mSearch" class="search-box" placeholder="Search for notes (e.g. Safety)...">
+        <input type="text" id="mSearch" class="search-box" placeholder="Search for notes...">
     </div>
 
     <!-- Adsterra 1 -->
-    <div style="text-align:center; margin-bottom: 40px;">
+    <div style="text-align:center; margin-bottom: 20px; overflow: hidden;">
         <script type="text/javascript">
             atOptions = { 'key' : '47e6811fe187409eb3585a148823940f', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
         </script>
@@ -295,17 +303,17 @@
 
     <footer>
         <span class="revon-brand">Developed by RevonTech</span>
-        <p style="color: var(--text-low); font-weight: 500;">Premium Digital Academic Solutions</p>
+        <p style="color: var(--text-low); font-weight: 500; font-size: 0.9rem;">Premium Digital Academic Solutions</p>
         
-        <div style="margin-top: 30px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-            <a href="https://whatsapp.com/channel/0029VaxUO80DjiOUlmhSVS2f" target="_blank" class="btn-wa-channel">
+        <div style="margin-top: 25px; display: flex; flex-direction: column; align-items: center; gap: 12px;">
+            <a href="https://whatsapp.com/channel/0029VaxUO80DjiOUlmhSVS2f" target="_blank" class="btn-wa-channel" style="width: 220px; justify-content: center;">
                 <i class="fa-brands fa-whatsapp"></i> Follow Channel
             </a>
-            <a href="https://wa.me/255760240796" target="_blank" class="btn-wa-channel" style="background: var(--surface); color: var(--text-high); border: 1px solid var(--border);">
+            <a href="https://wa.me/255760240796" target="_blank" class="btn-wa-channel" style="width: 220px; justify-content: center; background: var(--surface); color: var(--text-high); border: 1px solid var(--border);">
                 <i class="fa-solid fa-headset"></i> Support Chat
             </a>
         </div>
-        <p style="margin-top: 40px; font-size: 0.8rem; opacity: 0.5;">© 2026 MLT Level 4 Study Portal. All Rights Reserved.</p>
+        <p style="margin-top: 40px; font-size: 0.75rem; opacity: 0.5;">© 2024 MLT Level 4 Study Portal. All Rights Reserved.</p>
     </footer>
 
     <script>
@@ -336,7 +344,10 @@
         // Battery
         if(navigator.getBattery) {
             navigator.getBattery().then(bat => {
-                const update = () => document.getElementById('battery').innerText = Math.floor(bat.level * 100) + '%';
+                const update = () => {
+                    const level = Math.floor(bat.level * 100);
+                    document.getElementById('battery').innerText = level + '%';
+                };
                 update(); bat.onlevelchange = update;
             });
         }
@@ -350,4 +361,4 @@
         });
     </script>
 </body>
-</html>
+            </html>
